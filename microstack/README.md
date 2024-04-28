@@ -1,19 +1,18 @@
-# apache-kafka
+# MicroStack
+
+# Tutorials
+* [install-microstack](https://microstack.run)
 
 ## Bash Scripts
 * To run Kafka in single-broker mode, execute:
   * ```. bash-scripts/run.sh```
 
+## Remove microstack (clean environment)
+```multipass stop microstack && multipass delete microstack && multipass purge && multipass list```
 
-# Tutorials
-* [zero-to-hero-kafka-connect](https://github.com/confluentinc/demo-scene/blob/master/kafka-connect-zero-to-hero/demo_zero-to-hero-with-kafka-connect.adoc)
-* [debezium-kafka-connect](https://debezium.io/documentation/reference/stable/architecture.html)
-* [install-microstack](https://microstack.run)
+## Install microstack
 
-
-## Installing MicroStack
-
-### Install Multipass
+### Install multipass
 ```sudo snap install multipass```
 * This command installs Multipass, which is a tool to manage virtual machines (VMs) on your system.
 
