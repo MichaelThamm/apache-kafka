@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Creating kafka application ..."
+
 # Perform post-installation tasks
 lxd init --auto
 lxc network set lxdbr0 ipv6.address none
@@ -8,7 +10,7 @@ lxc network set lxdbr0 ipv6.address none
 juju bootstrap localhost overlord
 lxc list
 
-# Models host applications such as Charmed Kafka
+# Models are used to host applications such as Charmed Kafka
 juju add-model demo
 
 juju deploy zookeeper -n 5

@@ -20,6 +20,12 @@ multipass exec ${VM_NAME} -- sunbeam configure --accept-defaults --openrc demo-o
 # Launch a cloud instance
 multipass exec ${VM_NAME} -- sunbeam launch ubuntu -n ${CLOUD_INSTANCE_NAME}
 
-# Prepare kafka
-multipass transfer zookeeper-kafka.sh ${VM_NAME}:zookeeper-kafka.sh
-multipass exec ${VM_NAME} -- . zookeeper-kafka.sh
+# Transfer utility scripts into microstack
+multipass transfer kafka-create.sh ${VM_NAME}:kafka-create.sh
+multipass transfer kafka-config.sh ${VM_NAME}:kafka-config.sh
+
+# Create kafka
+multipass exec ${VM_NAME} -- . kafka-create.sh
+
+# Configure kafka
+multipass exec ${VM_NAME} -- . kafka-config.sh
