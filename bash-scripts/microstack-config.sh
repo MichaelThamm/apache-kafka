@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VM_NAME="microstack"
-CLOUD_INSTANCE_NAME="openstack"
+CLOUD_INSTANCE_NAME="demo_node"
 
 echo "Configuring microstack ..."
 
@@ -19,3 +19,7 @@ multipass exec ${VM_NAME} -- sunbeam configure --accept-defaults --openrc demo-o
 
 # Launch a cloud instance
 multipass exec ${VM_NAME} -- sunbeam launch ubuntu -n ${CLOUD_INSTANCE_NAME}
+
+# Prepare kafka
+multipass transfer zookeeper-kafka.sh ${VM_NAME}:zookeeper-kafka.sh
+multipass exec ${VM_NAME} -- . zookeeper-kafka.sh

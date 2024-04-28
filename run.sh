@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPTS_FOLDER="~/bash-scripts"
+SCRIPTS_FOLDER="bash-scripts"
 
 cd $SCRIPTS_FOLDER
 . microstack-create.sh
