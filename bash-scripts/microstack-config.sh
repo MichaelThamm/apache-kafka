@@ -23,9 +23,17 @@ multipass exec ${VM_NAME} -- sunbeam launch ubuntu -n ${CLOUD_INSTANCE_NAME}
 # Transfer utility scripts into microstack
 multipass transfer kafka-create.sh ${VM_NAME}:kafka-create.sh
 multipass transfer kafka-config.sh ${VM_NAME}:kafka-config.sh
+multipass transfer kafka-topics.sh ${VM_NAME}:kafka-topics.sh
+multipass transfer data-integrator.sh ${VM_NAME}:data-integrator.sh
 
 # Create kafka
 multipass exec ${VM_NAME} -- . kafka-create.sh
 
 # Configure kafka
 multipass exec ${VM_NAME} -- . kafka-config.sh
+
+# Create kafka topics
+#multipass exec ${VM_NAME} -- . kafka-topics.sh
+
+# Create the data-integrator (user management)
+multipass exec ${VM_NAME} -- . data-integrator.sh
