@@ -98,4 +98,5 @@
     Access instance with `ssh -i /home/ubuntu/snap/openstack/324/sunbeam ubuntu@10.20.20.254`
     ```
 
-![juju-status](documentation/juju-status.png)
+![kafka-status](documentation/juju-status.png)
+![data-integrator-status](documentation/data-integrator-error.png)
