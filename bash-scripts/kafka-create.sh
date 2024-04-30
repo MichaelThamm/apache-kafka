@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Creating kafka application ..."
+echo "Creating the kafka application ..."
 
 # Perform post-installation tasks
 lxd init --auto

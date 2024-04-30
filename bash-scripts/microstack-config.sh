@@ -25,6 +25,7 @@ multipass transfer kafka-create.sh ${VM_NAME}:kafka-create.sh
 multipass transfer kafka-config.sh ${VM_NAME}:kafka-config.sh
 multipass transfer kafka-topics.sh ${VM_NAME}:kafka-topics.sh
 multipass transfer data-integrator.sh ${VM_NAME}:data-integrator.sh
+multipass transfer kafka-produce-consume.sh ${VM_NAME}:kafka-produce-consume.sh
 
 # Create kafka
 multipass exec ${VM_NAME} -- . kafka-create.sh
@@ -33,7 +34,10 @@ multipass exec ${VM_NAME} -- . kafka-create.sh
 multipass exec ${VM_NAME} -- . kafka-config.sh
 
 # Create kafka topics
-#multipass exec ${VM_NAME} -- . kafka-topics.sh
+multipass exec ${VM_NAME} -- . kafka-topics.sh
 
 # Create the data-integrator (user management)
 multipass exec ${VM_NAME} -- . data-integrator.sh
+
+# Produce and consume messages
+multipass exec ${VM_NAME} -- . kafka-produce-consume.sh

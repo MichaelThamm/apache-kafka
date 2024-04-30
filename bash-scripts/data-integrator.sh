@@ -13,5 +13,5 @@ juju relate data-integrator kafka
 # Wait for completion
 juju status --watch 1s
 
-# 
+# Get data-integrator credentials
 juju run data-integrator/leader get-credentials
