@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VM_NAME="microstack"
-CLOUD_INSTANCE_NAME="demo_node"
+CLOUD_INSTANCE_NAME="demo_instance"
 
 echo "Configuring microstack ..."
 
@@ -23,9 +23,10 @@ multipass exec ${VM_NAME} -- sunbeam launch ubuntu -n ${CLOUD_INSTANCE_NAME}
 # Transfer utility scripts into microstack
 multipass transfer kafka-create.sh ${VM_NAME}:kafka-create.sh
 multipass transfer kafka-config.sh ${VM_NAME}:kafka-config.sh
-multipass transfer kafka-topics.sh ${VM_NAME}:kafka-topics.sh
 multipass transfer data-integrator.sh ${VM_NAME}:data-integrator.sh
 multipass transfer kafka-produce-consume.sh ${VM_NAME}:kafka-produce-consume.sh
+multipass transfer kafka-user-mgmt.sh ${VM_NAME}:kafka-user-mgmt.sh
+multipass transfer kafka-tls.sh ${VM_NAME}:kafka-tls.sh
 
 # Create kafka
 multipass exec ${VM_NAME} -- . kafka-create.sh
@@ -33,11 +34,14 @@ multipass exec ${VM_NAME} -- . kafka-create.sh
 # Configure kafka
 multipass exec ${VM_NAME} -- . kafka-config.sh
 
-# Create kafka topics
-multipass exec ${VM_NAME} -- . kafka-topics.sh
-
 # Create the data-integrator (user management)
 multipass exec ${VM_NAME} -- . data-integrator.sh
 
 # Produce and consume messages
 multipass exec ${VM_NAME} -- . kafka-produce-consume.sh
+
+# Manage users
+multipass exec ${VM_NAME} -- . kafka-user-mgmt.sh
+
+# Manage encryption
+multipass exec ${VM_NAME} -- . kafka-tls.sh
