@@ -94,19 +94,3 @@ The [run.sh](run.sh) script configures the following:
 2024-05-01 22:08:51,001 INFO [__main__] (MainThread) (<module>) ConsumerRecord(topic='test-topic_kafka-app', partition=1, offset=11, timestamp=1714600326727, timestamp_type=0, key=None, value=b'{"timestamp": 1714600326.727628, "_id": "8a54a8f0fff3468bb9b1c85b6f06a869", "origin": "juju-12c45c-9 (10.234.170.166)", "content": "Message #44"}', headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=145, serialized_header_size=-1)
 2024-05-01 22:08:51,007 INFO [__main__] (MainThread) (<module>) ConsumerRecord(topic='test-topic_kafka-app', partition=1, offset=12, timestamp=1714600327734, timestamp_type=0, key=None, value=b'{"timestamp": 1714600327.734235, "_id": "f816951c2cc64ae9b959a9c4c6928d66", "origin": "juju-12c45c-9 (10.234.170.166)", "content": "Message #46"}', headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=145, serialized_header_size=-1)
 ```
-
-# TODO
-* Learn topics:
-  * Multipass
-  * OpenStack core services
-  * Terraform
-  * VMs in OpenStack vs. creating a model and deploying with juju
-  * lxc/lxc
-  * Zookeeper and Kafka
-  * Data-integrator (user management and encryption)
-  * Produce-consume design pattern
-  * Distributed kafka
-  * Kafka architecture
-  * Partitioning
-  * Charmed Kafka vs. Apache Kafka Connect (Debezium)
-* Abstract the topic creation with relations and data-integrator if possible
