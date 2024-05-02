@@ -4,7 +4,6 @@ echo "Configuring the kafka application ..."
 
 TOPIC_NAME="test-topic"
 
-
 # Get credentials to access a broker
 juju run kafka/leader get-admin-credentials
 

@@ -19,7 +19,7 @@ juju deploy ${APP_NAME} -n1 --channel edge
 # This will take care of creating a dedicated user and start a producer process publishing messages to the APP_NAME_kafka-app topic, basically automating what was done before by hands.
 juju config ${APP_NAME} topic_name=${TOPIC_NAME}_kafka-app role=producer num_messages=50
 # wait for the relation to be torn down
-sleep 5
+sleep 15
 juju relate ${APP_NAME} kafka
 # Wait for "Topic TOPIC_NAME_kafka-app enabled with process producer" status message
 juju status --watch 1s
@@ -29,7 +29,7 @@ juju remove-relation ${APP_NAME} kafka
 # Consume the messages
 juju config ${APP_NAME} topic_name=${TOPIC_NAME}_kafka-app role=consumer consumer_group_prefix=cg
 # Wait for the relation to be torn down
-sleep 5
+sleep 15
 juju relate ${APP_NAME} kafka
 # Wait for "Topic TOPIC_NAME_kafka-app enabled with process consumer" status message
 juju status --watch 1s

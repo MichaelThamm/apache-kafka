@@ -11,18 +11,15 @@ APP_NAME="kafka-test-app"
 # Distribute self-signed certificates to all charms (Kafka, Zookeeper and client applications) signed using a root self-signed CA, trusted by all applications.
 juju deploy self-signed-certificates --config ca-common-name="Tutorial CA"
 
-juju status --watch 1s
-
 # Enable TLS on zookeeper and kafka
 juju relate zookeeper self-signed-certificates
 juju relate kafka:certificates self-signed-certificates
 
-# Checḱ for default encrypted port 9093
-telnet
-
+juju status --watch 1s
 
 # Client apps need reconfiguration to connect to port 9093 and trust the self-signed CA provided by the self-signed-certificates charm.
 juju remove-relation ${APP_NAME} kafka
+sleep 15
 
 # Enable encryption on the APP_NAME by relating with the self-signed-certificates charm
 juju relate ${APP_NAME} self-signed-certificates
