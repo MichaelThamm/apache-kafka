@@ -1,5 +1,7 @@
 # Kafka on MicroStack
 
+![architecture](documentation/architecture.png)
+
 # Tutorials
 * [install-microstack](https://microstack.run)
 * [charmed-kafka](https://canonical.com/data/docs/kafka/iaas/t-overview)
@@ -62,13 +64,14 @@ The [run.sh](run.sh) script configures the following:
 #### Consume produced messages to ```test-topic``` with ```kafka```
 
 ![consumer-status](documentation/juju-status-consumer.png)
-##### Log including the last 2 produced messages
+
+#### Log including the last 2 produced messages
 ```
 ==> /tmp/1714600296_producer.log <==
 2024-05-01 21:52:08,743 INFO [__main__] (MainThread) (produce_message) Message published to topic=test-topic_kafka-app, message content: {"timestamp": 1714600328.740849, "_id": "5a2721a490f246af88ba5c340b31fc5a", "origin": "juju-12c45c-9 (10.234.170.166)", "content": "Message #48"}
 2024-05-01 21:52:09,246 INFO [__main__] (MainThread) (produce_message) Message published to topic=test-topic_kafka-app, message content: {"timestamp": 1714600329.243787, "_id": "261074d346ef4a7daafd4c3bf8db8771", "origin": "juju-12c45c-9 (10.234.170.166)", "content": "Message #49"}
 ```
-##### Log including the last 2 consumed messages
+#### Log including the last 2 consumed messages
 ```
 ==> /tmp/1714601323_consumer.log <==
 2024-05-01 22:08:51,001 INFO [__main__] (MainThread) (<module>) ConsumerRecord(topic='test-topic_kafka-app', partition=1, offset=11, timestamp=1714600326727, timestamp_type=0, key=None, value=b'{"timestamp": 1714600326.727628, "_id": "8a54a8f0fff3468bb9b1c85b6f06a869", "origin": "juju-12c45c-9 (10.234.170.166)", "content": "Message #44"}', headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=145, serialized_header_size=-1)
