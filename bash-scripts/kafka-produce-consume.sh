@@ -51,5 +51,5 @@ juju exec --application ${APP_NAME} "tail /tmp/*.log"
 ## Make Python virtual environment libraries visible:
 #echo "export PYTHONPATH=\"/var/lib/juju/agents/unit-${APP_NAME}-0/charm/venv:/var/lib/juju/agents/unit-${APP_NAME}-0/charm/lib\""
 #echo "INTERNAL_LISTENERS=${INTERNAL_LISTENERS}"
-#echo "python3 -m charms.kafka.v0.client -u ${USERNAME} -p ${PASSWORD} -t ${TOPIC_NAME} -s \"\$INTERNAL_LISTENERS\" -n 10 --producer -r 3 --num-partitions 1"
+#echo "python3 -m charms.kafka.v0.client -u ${USERNAME} -p ${PASSWORD} -t ${TOPIC_NAME} -s \"\$INTERNAL_LISTENERS\" -n 10 --producer -r 3 --num-partitions 2"
 #echo "python3 -m charms.kafka.v0.client -u ${USERNAME} -p ${PASSWORD} -t ${TOPIC_NAME} -s \"\$INTERNAL_LISTENERS\" --consumer -c \"cg\""
